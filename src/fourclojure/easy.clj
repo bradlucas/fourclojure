@@ -1,5 +1,63 @@
 (ns fourclojure.easy)
 
+;; ------------------------------------------------------------------------
+;; Last Element
+;; Penultimate Element
+;; Nth Element
+;; Count a Sequence
+;; Sum It All Up
+;; Find the odd numbers
+;; Reverse a Sequence
+;; Palindrome Detector
+;; Fibonacci Sequence
+;; Maximum value
+;; Get the Caps
+;; Duplicate a Sequence
+;; Intro to some
+;; Implement range
+;; Flatten a Sequence
+;; Interleave Two Seqs
+;; Factorial Fun
+;; Compress a Sequence
+;; Replicate a Sequence
+;; Contain Yourself
+;; Intro to Iterate
+;; Interpose a Seq
+;; Pack a Sequence
+;; Drop Every Nth Item
+;; Split a sequence
+;; Advanced Destructuring
+;; A Half-Truth
+;; Map Construction
+;; Greatest Common Divisor
+;; Comparisons
+;; Set Intersection
+;; Re-implement Iterate
+;; Simple closures
+;; Product Digits
+;; Cartesian Product
+;; Group a Sequence
+;; Symmetric Difference
+;; Read a binary number
+;; dot product
+;; Through the Looking Class
+;; Infix Calculator
+;; Indexing Sequences
+;; Pascal's Triangle
+;; Re-implement Map
+;; To Tree, or not to Tree
+;; Sum of square of digits
+;; Recognize Playing Cards
+;; Least Common Multiple
+;; Intro to Destructuring 2
+;; Pascal's Trapezoid
+;; Beauty is Symmetry
+;; Trees into tables
+;; Pairwise Disjoint Sets
+;; ------------------------------------------------------------------------
+;; ------------------------------------------------------------------------
+
+
 ;; Last Element	
 ;; https://www.4clojure.com/problem/19
 (fn [x] (first (reverse x)))
@@ -53,15 +111,13 @@
       lst)))
 
 ;; Maximum value	
-;; http://www.4clojure.com/problem/38
+;; https://www.4clojure.com/problem/38
 (defn mx [& args]
   (if (= 1 (count args))
     (first args)
     (if (> (first args) (second args))
       (apply mx (conj (rest (rest args)) (first args)))
       (apply  mx (rest args)))))
-
-
 
 ;; Get the Caps
 ;; https://www.4clojure.com/problem/29
@@ -72,8 +128,6 @@
               (and (> v 64) (< v 91)))
             )]
     (apply str (filter #(capital %) (seq col)))))
- 
-
 
 ;; Duplicate a Sequence	
 ;; https://www.4clojure.com/problem/32
@@ -84,21 +138,15 @@
       (reverse acc)
       (recur (rest r) (conj acc (first r) (first r))))))
 
-
-
 ;; Intro to some	
 ;; https://www.4clojure.com/problem/48
 6
-
-
 
 ;; Implement range	
 ;; https://www.4clojure.com/problem/34
 ;; return rnage of integer from x to y inclusive
 (defn prob34 [x y]
   (take (- y x) (iterate inc x)))
-
-
 
 ;; Flatten a Sequence	
 ;; https://www.4clojure.com/problem/28
@@ -108,8 +156,6 @@
       (concat (flat (first s)) (flat (rest s)))
       (cons (first s) (flatten (rest s))))))
 
-
-
 ;; Interleave Two Seqs
 ;; https://www.4clojure.com/problem/39
 (defn prob39 [c1 c2]
@@ -117,20 +163,24 @@
     (when (and s1 s2)
       (cons (first s1) (cons (first s2) (prob39 (rest s1) (rest s2)))))))
 
-
-
 ;; Factorial Fun	
 ;; https://www.4clojure.com/problem/42
 (defn prob42 [x]
   (reduce * (range 1 (+ 1 x))))
 
-
-
-;; Contain Yourself	
-;; https://www.4clojure.com/problem/47
-4
-
-
+;; Compress a Sequence	
+;; https://www.4clojure.com/problem/30
+(defn prob30 [col]
+  (loop [col col
+         acc []]
+    (if (empty? col)
+      acc
+      (recur
+       (rest col)
+       (if (not (= (last acc) (first col)))
+         (conj acc (first col))
+         acc
+         )))))
 
 ;; Replicate a Sequence	
 ;; https://www.4clojure.com/problem/33
@@ -144,13 +194,28 @@
         (reverse acc)
         (recur (rest r) (into acc (duper num (first r))))))))
 
-
+;; Contain Yourself	
+;; https://www.4clojure.com/problem/47
+4
 
 ;; Intro to Iterate	
 ;; https://www.4clojure.com/problem/45
 '(1 4 7 10 13)
 
+;; Interpose a Seq	
+;; https://www.4clojure.com/problem/40
+(defn prob40 [n col]
+  (loop [n n
+         col col
+         acc []]
+    (if (= (count col) 1)
+      (conj acc (first col))
+      (recur n (rest col) (conj acc (first col) n)))))
 
+;; Pack a Sequence	
+;; https://www.4clojure.com/problem/31
+(defn prob31 [col]
+  (partition-by identity col))
 
 ;; Drop Every Nth Item	
 ;; https://www.4clojure.com/problem/41
@@ -161,7 +226,18 @@
     (take-last (rem (count col) n) col)
     )))
 
+;; Split a sequence	
+;; https://www.4clojure.com/problem/49
+(defn prob49 [n col]
+  [(take n col) (drop n col)]
+)
 
+;; Advanced Destructuring	
+;; https://www.4clojure.com/problem/51
+(= [1 2 [3 4 5] [1 2 3 4 5]] 
+   (let [[a b & c :as d] 
+         [1 2 3 4 5]] 
+     [a b c d]))
 
 ;; A Half-Truth	
 ;; https://www.4clojure.com/problem/83
@@ -170,8 +246,6 @@
         length (count args)]
     (and (> true-count 0) (< true-count length))))
 
-
-
 ;; Map Construction	
 ;; https://www.4clojure.com/problem/61
 ;; Write a function which takes a vector of keys and a vector of values and constructs a map from
@@ -179,8 +253,6 @@
 (defn prob61
   [keys values]
   (into {} (map #(hash-map %1 %2) keys values)))
-
-
 
 ;; Greatest Common Divisor	
 ;; https://www.4clojure.com/problem/66
@@ -196,8 +268,6 @@
     a
     (recur b (mod a b))))
 
-
-
 ;; Comparisons	
 ;; https://www.4clojure.com/problem/166
 (defn prob166 [f x y]
@@ -206,9 +276,6 @@
    (f y x) :gt
    :else :eq))
 ;;(prob166 (fn [x y] (< (count x) (count y))) "pear" "plum")
-
-
-
 
 ;; Set Intersection	
 ;; https://www.4clojure.com/problem/81
@@ -226,148 +293,11 @@
           (recur (disj s1 item) s2 (conj res item))
           (recur (disj s1 item) s2 res))))))
 
-
-
 ;; Re-implement Iterate	
 ;; https://www.4clojure.com/problem/62
 (defn prob62 
   [f x]
   (lazy-seq (cons x (prob62 f (f x)))))
-
-
-
-;; Product Digits	
-;; https://www.4clojure.com/problem/99
-(defn prob99 [x y]
-  (vec (map #(- (int %) 48) (seq (str (* x y))))))
-
-
-
-;; Symmetric Difference	
-;; https://www.4clojure.com/problem/88
-#(set (reduce conj 
-          (remove % %2) 
-          (remove %2 %)))
-
-
-
-;; Read a binary number	
-;; https://www.4clojure.com/problem/122
-#(Integer/parseInt % 2)
-
-
-
-;; dot product	
-;; https://www.4clojure.com/problem/143
-(defn prob143 [v1 v2]
-  (reduce + (map #(* %1 %2) v1 v2))
-)
-
-
-
-;; Sum of square of digits	
-;; Write a function which takes a collection of integers as an
-;; argument. Return the count of how many elements are smaller than
-;; the sum of their squared component digits. For example: 10 is
-;; larger than 1 squared plus 0 squared; whereas 15 is smaller than 1
-;; squared plus 5 squared.
-;; #120
-;; http://www.4clojure.com/problem/120
-(defn count-less-sum-square-digits [coll]
-  (letfn [
-          (sum-square-num-range [col]
-            (reduce + (map #(square-num %) col)))
-          (square-num [n]
-            (* n n ))
-          (digit-list [num]
-            (map char-to-num (str num)))
-          (char-to-num [c]
-            (- (int c) 48))
-          ]
-  (count (filter  #(true? %) (map #(< % (sum-square-num-range (digit-list %))) coll)))))
-
-
-
-;; Least Common Multiple	
-;; https://www.4clojure.com/problem/100
-;; smallest number dividable by each of the args
-;; lcm = (/ (* a b) (gcd a b)
-;; gcd(a, 0) == a
-;; gcd(a, b) == gcd(b, (mod a b))
-(defn prob100 [& args]
-  (reduce 
-   (fn [x y]
-     (letfn [(gcd [a b]
-               (if (zero? b) 
-                 a
-                 (recur b (mod a b))))
-             ]
-       (/ (* x y) (gcd x y)))
-     )
-   args))
-
-
-
-;; TODO Compress a Sequence	
-;; https://www.4clojure.com/problem/30
-(defn prob30 [col]
-  (loop [col col
-         acc []]
-    (if (empty? col)
-      acc
-      (recur
-       (rest col)
-       (if (not (= (last acc) (first col)))
-         (conj acc (first col))
-         acc
-         )))))
-
-
-
-;; Interpose a Seq	
-;; https://www.4clojure.com/problem/40
-(defn prob40 [n col]
-  (loop [n n
-         col col
-         acc []]
-    (if (= (count col) 1)
-      (conj acc (first col))
-      (recur n (rest col) (conj acc (first col) n)))))
-
-
-
-;; Pack a Sequence	
-;; https://www.4clojure.com/problem/31
-(defn prob31 [col]
-  (partition-by identity col))
-
-
-
-;; Intro to Destructuring	
-;; https://www.4clojure.com/problem/52
-(= [2 4] 
-   (let [[a b c d e f g] (range)]
-     [c e]
-     ))
-
-
-
-;; Split a sequence	
-;; https://www.4clojure.com/problem/49
-(defn prob49 [n col]
-  [(take n col) (drop n col)]
-)
-
-
-
-;; Advanced Destructuring	
-;; https://www.4clojure.com/problem/51
-(= [1 2 [3 4 5] [1 2 3 4 5]] 
-   (let [[a b & c :as d] 
-         [1 2 3 4 5]] 
-     [a b c d]))
-
-
 
 ;; Simple closures	
 ;; https://www.4clojure.com/problem/107
@@ -375,9 +305,12 @@
   (fn [x] (reduce * (repeat n x)))
   )
 
+;; Product Digits	
+;; https://www.4clojure.com/problem/99
+(defn prob99 [x y]
+  (vec (map #(- (int %) 48) (seq (str (* x y))))))
 
-
-;; TODO Cartesian Product	
+;; Cartesian Product	
 ;; https://www.4clojure.com/problem/90
 (defn prob90 [l1 l2]
   (loop [acc #{}
@@ -390,8 +323,6 @@
         (recur (into acc (map (fn [v] [r v]) cols)) (rest rows) cols)
         ))))
 
-
-
 ;; Group a Sequence	
 ;; https://www.4clojure.com/problem/63
 (defn prob63 
@@ -403,15 +334,26 @@
      )
    {} col))
 
+;; Symmetric Difference	
+;; https://www.4clojure.com/problem/88
+#(set (reduce conj 
+          (remove % %2) 
+          (remove %2 %)))
 
+;; Read a binary number	
+;; https://www.4clojure.com/problem/122
+#(Integer/parseInt % 2)
+
+;; dot product	
+;; https://www.4clojure.com/problem/143
+(defn prob143 [v1 v2]
+  (reduce + (map #(* %1 %2) v1 v2))
+)
 
 ;; Through the Looking Class	
 ;; https://www.4clojure.com/problem/126
 (let [x Class]
   (and (= (class x) x) x))
-
-
-
 
 ;; Infix Calculator	
 ;; https://www.4clojure.com/problem/135
@@ -426,8 +368,6 @@
             rem (rest (rest stack))]
         (recur (op acc b) rem)))))
 
-
-
 ;; Indexing Sequences	
 ;; https://www.4clojure.com/problem/157
 (defn prob157 [col]
@@ -438,8 +378,6 @@
       ret
       (recur (rest col) (inc idx) (conj ret [(first col) idx])))))
 
-
-
 ;; Pascal's Triangle	
 ;; https://www.4clojure.com/problem/97
 (defn prob97 [row]
@@ -447,10 +385,7 @@
         (iterate #(concat [1]
                           (map + % (rest %))
                           [1])
-
                  [1]))))
-
-
 
 ;; Re-implement Map	
 ;; https://www.4clojure.com/problem/118
@@ -470,9 +405,6 @@
       acc
       (recur f (rest col) (conj acc (f (first col)))))))
 
-
-
-
 ;; To Tree, or not to Tree	
 ;; https://www.4clojure.com/problem/95
 (defn prob95 [s]
@@ -483,7 +415,26 @@
        (and (prob95 (nth s 1)) (prob95 (nth s 2))))))
 ;; '(:a (:b nil nil) nil)
 
-
+;; Sum of square of digits	
+;; Write a function which takes a collection of integers as an
+;; argument. Return the count of how many elements are smaller than
+;; the sum of their squared component digits. For example: 10 is
+;; larger than 1 squared plus 0 squared; whereas 15 is smaller than 1
+;; squared plus 5 squared.
+;; #120
+;; https://www.4clojure.com/problem/120
+(defn count-less-sum-square-digits [coll]
+  (letfn [
+          (sum-square-num-range [col]
+            (reduce + (map #(square-num %) col)))
+          (square-num [n]
+            (* n n ))
+          (digit-list [num]
+            (map char-to-num (str num)))
+          (char-to-num [c]
+            (- (int c) 48))
+          ]
+  (count (filter  #(true? %) (map #(< % (sum-square-num-range (digit-list %))) coll)))))
 
 ;; Recognize Playing Cards	
 ;; https://www.4clojure.com/problem/128
@@ -521,7 +472,23 @@
             rank-char (last v)]
         {:suit (suit suit-char) :rank (rank rank-char)})))
 
-
+;; Least Common Multiple	
+;; https://www.4clojure.com/problem/100
+;; smallest number dividable by each of the args
+;; lcm = (/ (* a b) (gcd a b)
+;; gcd(a, 0) == a
+;; gcd(a, b) == gcd(b, (mod a b))
+(defn prob100 [& args]
+  (reduce 
+   (fn [x y]
+     (letfn [(gcd [a b]
+               (if (zero? b) 
+                 a
+                 (recur b (mod a b))))
+             ]
+       (/ (* x y) (gcd x y)))
+     )
+   args))
 
 ;; Intro to Destructuring 2	
 ;; https://www.4clojure.com/problem/173
@@ -591,5 +558,7 @@
 
 ;; #{#{\U} #{\s} #{\e \R \E} #{\P \L} #{\.}}
 
+;; ----------------------------------------------------------------------------------------------------
 ;; EOF
+;; ----------------------------------------------------------------------------------------------------
 
