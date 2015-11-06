@@ -172,7 +172,12 @@ reduce +
       (conj final {first num})
       (recur rest (conj final {first num})))))
 
-;; Intro to Destructuring
+;; Intro to Destructuring	
 ;; https://www.4clojure.com/problem/52
+(= [2 4] 
+   (let [[a b c d e f g] (range)]
+     [c e]
+     ))
 ;; [c e]
+
 
