@@ -1,4 +1,41 @@
 (ns fourclojure.elementary)
+
+;; ------------------------------------------------------------------------
+;; Nothing but the Truth
+;; Simple Math
+;; Intro to Strings
+;; Intro to Lists
+;; Lists: conj
+;; Intro to Vectors
+;; Vectors: conj
+;; Intro to Sets
+;; Sets: conj
+;; Intro to Maps
+;; Maps: conj
+;; Intro to Sequences
+;; Sequences: rest
+;; Intro to Functions
+;; Double Down
+;; Hello World
+;; Sequences: map
+;; Sequences: filter
+;; Local bindings
+;; Let it Be
+;; Regular Expressions
+;; Intro to Reduce
+;; Simple Recursion
+;; Rearranging Code: ->
+;; Recurring Theme
+;; Rearranging Code: ->>
+;; A nil key
+;; For the win
+;; Logical falsity and truth
+;; Subset and Superset
+;; Map Defaults
+;; Intro to Destructuring
+;; ------------------------------------------------------------------------
+;; ------------------------------------------------------------------------
+
  
 ;; Nothing but the Truth	
 ;; https://www.4clojure.com/problem/1
@@ -119,7 +156,7 @@ reduce +
 
 ;; Logical falsity and truth
 ;; https://www.4clojure.com/problem/162
-1
+11
 
 ;; Subset and Superset
 ;; https://www.4clojure.com/problem/161
