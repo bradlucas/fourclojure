@@ -23,8 +23,6 @@
   [n]
   (drop-while #(< % n) (iterate next-palindrome n)))
 
-
-
 (defn problem-150
   [n]
   (letfn [(split-number [n] [(quot (inc n) 2), (quot n 2)])
@@ -40,7 +38,5 @@
                   [new-left new-right] (split-number (count (str (inc n))))]
               (build (str next) new-left new-right)))]
     (drop-while #(< % n) (iterate next-palindrome (nearest-palindrome n)))))
-
-
 
 ;; https://github.com/eigenhombre/probs4clojure/blob/master/test/probs4clojure/core_test.clj
