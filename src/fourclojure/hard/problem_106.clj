@@ -1,3 +1,3 @@
-(ns fourclojure.hard.hard.problem-106)
+(ns fourclojure.hard.problem-106)
 
 ;; TODO

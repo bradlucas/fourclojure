@@ -1,4 +1,4 @@
-(ns fourclojure.hard.hard.problem-053)
+(ns fourclojure.hard.problem-053)
 
 ;; Longest Increasing Sub-Seq
 ;; http://www.4clojure.com/problem/53

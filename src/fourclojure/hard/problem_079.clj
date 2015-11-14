@@ -1,4 +1,4 @@
-(ns fourclojure.hard.hard.problem-079)
+(ns fourclojure.hard.problem-079)
 
 ;; Triangle Minimal Path
  ;; 79

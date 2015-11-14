@@ -1,4 +1,4 @@
-(ns fourclojure.hard.hard.problem-073)
+(ns fourclojure.hardb.problem-073)
 
 
 ;; Analyze a Tic-Tac-Toe Board

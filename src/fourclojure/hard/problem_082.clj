@@ -1,4 +1,4 @@
-(ns fourclojure.hard.hard.problem-082
+(ns fourclojure.hard.problem-082
   (:require clojure.data))
 
 
