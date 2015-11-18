@@ -20,7 +20,7 @@
 ;; | Love Triangle               | http://www.4clojure.com/problem/127 |   |
 ;; | Longest Increasing Sub-Seq  | http://www.4clojure.com/problem/53  | x |
 ;; | Word Chains                 | http://www.4clojure.com/problem/82  | x |
-;; | Levenshtein Distance        | http://www.4clojure.com/problem/101 |   |
+;; | Levenshtein Distance        | http://www.4clojure.com/problem/101 | x |
 ;; | Transitive Closure          | http://www.4clojure.com/problem/84  |   |
 ;; | Best Hand                   | http://www.4clojure.com/problem/178 |   |
 ;; | Read Roman numerals         | http://www.4clojure.com/problem/92  | x |
