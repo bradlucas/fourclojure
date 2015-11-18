@@ -23,8 +23,8 @@
 ;; | Levenshtein Distance        | http://www.4clojure.com/problem/101 |   |
 ;; | Transitive Closure          | http://www.4clojure.com/problem/84  |   |
 ;; | Best Hand                   | http://www.4clojure.com/problem/178 |   |
-;; | Read Roman numerals         | http://www.4clojure.com/problem/92  | X |
+;; | Read Roman numerals         | http://www.4clojure.com/problem/92  | x |
 ;; | Tree reparenting            | http://www.4clojure.com/problem/130 |   |
-;; | Making Data Dance           | http://www.4clojure.com/problem/113 |   |
+;; | Making Data Dance           | http://www.4clojure.com/problem/113 | x |
 ;; |-----------------------------+-------------------------------------+---|
 
