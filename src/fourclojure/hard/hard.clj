@@ -8,13 +8,13 @@
 ;; | Analyze a Tic-Tac-Toe Board | http://www.4clojure.com/problem/73  | x |
 ;; | Game of Life                | http://www.4clojure.com/problem/94  |   |
 ;; | For Science!                | http://www.4clojure.com/problem/117 |   |
-;; | Win at Tic-Tac-Toe          | http://www.4clojure.com/problem/119 |   |
+;; | Win at Tic-Tac-Toe          | http://www.4clojure.com/problem/119 | x |
 ;; | Crossword puzzle            | http://www.4clojure.com/problem/111 |   |
 ;; | Analyze Reversi             | http://www.4clojure.com/problem/124 |   |
 ;; | Triangle Minimal Path       | http://www.4clojure.com/problem/79  | x |
 ;; | Graph Connectivity          | http://www.4clojure.com/problem/91  |   |
 ;; | Graph Tour                  | http://www.4clojure.com/problem/89  |   |
-;; | Gus' Quinundrum             | http://www.4clojure.com/problem/125 |   |
+;; | Gus' Quinundrum             | http://www.4clojure.com/problem/125 | x |
 ;; | Veitch, Please!             | http://www.4clojure.com/problem/140 |   |
 ;; | Number Maze                 | http://www.4clojure.com/problem/106 |   |
 ;; | Love Triangle               | http://www.4clojure.com/problem/127 |   |
