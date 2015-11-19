@@ -68,8 +68,6 @@
   [hand]
   (map card-suit-rank hand))
 
-;; ----------------------------------------------------------------------------------------------------
-
 (defn straight-flush
   "Straight flush: All cards in the same suit, and in sequence "
   [cards]
@@ -94,7 +92,7 @@
   [cards]
   (let [count-map (frequencies (map #(:rank %) cards))]
     ;; count-map contains a value of 3 and 2
-    (not (empty? (filter (fn [[v c]] (and (= c 2) (= c 3))) count-map)))))
+    (= #{3 2} (set (map (fn [[v c]] c) (filter (fn [[v c]] (or (= c 2) (= c 3))) count-map))))))
 
 (defn flush
   "Flush: All cards in the same suit"
@@ -126,8 +124,7 @@
                 b (second s)]
             (if (not= (inc a) b)
               false
-              (recur (next s))))))
-))
+              (recur (next s))))))))
 
 (defn straight
   "Straight: All cards in sequence (aces can be high or low, but not both at once"
@@ -135,43 +132,34 @@
   (let [ranks (fix-up-ace (sort (get-ranks cards)))
         cnt (count ranks)]
       (if (and (= cnt 5) 
-               ;; TODO
                ;; area all the numbers sequencial
-               ;; (= 4 (- (nth ranks (- cnt 1)) (nth ranks 0)))
-               (increasing ranks)
-               )        
+               (increasing ranks))        
         true
-        false
-        )
-    ))
+        false)))
 
 (defn three-of-a-kind
   "Three of a kind: Three of the cards have the same rank"
   [cards]
   (let [count-map (frequencies (map #(:rank %) cards))]
-    (not (empty? (filter (fn [[v c]] (= c 3)) count-map)))
-    ))
+    (not (empty? (filter (fn [[v c]] (= c 3)) count-map)))))
 
 (defn two-pair
   "Two pair: Two pairs of cards have the same rank"
   [cards]
   (let [count-map (frequencies (map #(:rank %) cards))]
-    (= 2 (count (filter (fn [[v c]] (= c 2)) count-map)))))
-
+    (= '(2 2)
+       (map (fn [[v c]] c) (filter (fn [[v c]] (= c 2)) count-map)))))
 
 (defn pair
   "Pair: Two cards have the same rank"
   [cards]
   (let [count-map (frequencies (map #(:rank %) cards))]
-    (not (empty? (filter (fn [[v c]] (= c 2)) count-map)))
-    )
-  )
+    (not (empty? (filter (fn [[v c]] (= c 2)) count-map)))))
 
 (defn high-card
   "High card: None of the above conditions are met"
   [cards]
-  true
-  )
+  true)
 
 (defn prob178
   [coll]
@@ -186,7 +174,8 @@
       (two-pair cards) :two-pair
       (pair cards) :pair
       :else :high-card
-      ))
+      )
+    )
   )
 
 (defn run-examples []
@@ -202,3 +191,144 @@
   (= :straight-flush (prob178 ["HA" "HK" "HQ" "HJ" "HT"])))
 
 
+
+;;----------------------------------------------------------------------------------------------------
+;; ----------------------------------------------------------------------------------------------------
+
+
+(defn prob178
+  [coll]
+  (letfn [( card-suit-rank [s]
+            (letfn [(suit [c]
+                      ({
+                        \D :diamond
+                        \H :heart
+                        \C :club
+                        \S :spade
+                        } 
+                       c)
+                      )
+                    (rank [c]
+                      ({
+                        \2 0
+                        \3 1
+                        \4 2
+                        \5 3
+                        \6 4
+                        \7 5
+                        \8 6
+                        \9 7
+                        \T 8
+                        \J 9
+                        \Q 10
+                        \K 11
+                        \A 12
+                        }
+                       c
+                       )
+                      )]
+              (let [v (vec s)
+                    suit-char (first v)
+                    rank-char (last v)]
+                {:suit (suit suit-char) :rank (rank rank-char)})))
+          
+          (get-suits [cards] (map #(:suit %) cards))
+          (same-suit [cards] (= 1 (count (set (get-suits cards)))))
+          (get-ranks [cards] (map #(:rank %) cards))
+          (get-cards [hand] (map card-suit-rank hand))
+
+          (straight-flush [cards]
+            ;; Straight flush: All cards in the same suit, and in sequence
+            (if (same-suit cards)
+              (let [ranks (sort (get-ranks cards))
+                    cnt (count ranks)]
+                (if (and (= cnt 5) (= 4 (- (nth ranks (- cnt 1)) (nth ranks 0))))
+                  true
+                  false
+                  ))))
+
+          (four-of-a-kind [cards]
+            ;; Four of a kind: Four of the cards have the same rank
+            (let [count-map (frequencies (map #(:rank %) cards))]
+              ;; count-map contains a value of 4
+              (not (empty? (filter (fn [[v c]] (= c 4)) count-map)))))
+
+          (full-house [cards]
+            ;; Full House: Three cards of one rank, the other two of another rank
+            (let [count-map (frequencies (map #(:rank %) cards))]
+              ;; count-map contains a value of 3 and 2
+              (= #{3 2} (set (map (fn [[v c]] c) (filter (fn [[v c]] (or (= c 2) (= c 3))) count-map))))))
+          
+          (flush [cards]
+            ;; Flush: All cards in the same suit
+            (same-suit cards))
+
+          (seq-contains? [sequence item]
+            ;; @see http://stackoverflow.com/a/3249649
+            ;; Determine whether a sequence contains a given item
+            (if (empty? sequence)
+              false
+              (reduce #(or %1 %2) (map #(= %1 item) sequence))))
+
+          (fix-up-ace [ranks]
+            (if (and (seq-contains? ranks 12) (seq-contains? ranks 2))
+              (cons -1 (remove (fn [x] (= 12 x)) ranks))
+              ranks))
+
+          (increasing [xs]
+            (let [s (sort xs)]
+              (loop [s s]
+                (if (and (seq s) (= 1 (count s)))
+                  true
+                  (let [a (first s)
+                        b (second s)]
+                    (if (not= (inc a) b)
+                      false
+                      (recur (next s))))))))
+
+          (straight [cards]
+            ;; Straight: All cards in sequence (aces can be high or low, but not both at once
+            (let [ranks (fix-up-ace (sort (get-ranks cards)))
+                  cnt (count ranks)]
+              (if (and (= cnt 5) 
+                       ;; area all the numbers sequencial
+                       (increasing ranks))        
+                true
+                false
+                )))
+          
+          (three-of-a-kind [cards]
+            ;; Three of a kind: Three of the cards have the same rank
+            (let [count-map (frequencies (map #(:rank %) cards))]
+              (not (empty? (filter (fn [[v c]] (= c 3)) count-map)))))
+
+          (two-pair [cards]
+            ;; Two pair: Two pairs of cards have the same rank
+            (let [count-map (frequencies (map #(:rank %) cards))]
+              (= '(2 2)
+                 (map (fn [[v c]] c) (filter (fn [[v c]] (= c 2)) count-map)))))
+          
+          (pair [cards]
+            ;; Pair: Two cards have the same rank
+            (let [count-map (frequencies (map #(:rank %) cards))]
+              (not (empty? (filter (fn [[v c]] (= c 2)) count-map)))))
+
+          (high-card [cards]
+            ;; High card: None of the above conditions are met
+            true
+            )
+          ]
+    (let [cards (get-cards coll)]
+      (cond
+        (straight-flush cards) :straight-flush
+        (four-of-a-kind cards) :four-of-a-kind
+        (full-house cards) :full-house
+        (flush cards) :flush
+        (straight cards) :straight
+        (three-of-a-kind cards) :three-of-a-kind
+        (two-pair cards) :two-pair
+        (pair cards) :pair
+        :else :high-card
+        ))
+    )
+  )

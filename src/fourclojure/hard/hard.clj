@@ -22,7 +22,7 @@
 ;; | Word Chains                 | http://www.4clojure.com/problem/82  | x |
 ;; | Levenshtein Distance        | http://www.4clojure.com/problem/101 | x |
 ;; | Transitive Closure          | http://www.4clojure.com/problem/84  |   |
-;; | Best Hand                   | http://www.4clojure.com/problem/178 |   |
+;; | Best Hand                   | http://www.4clojure.com/problem/178 | x |
 ;; | Read Roman numerals         | http://www.4clojure.com/problem/92  | x |
 ;; | Tree reparenting            | http://www.4clojure.com/problem/130 |   |
 ;; | Making Data Dance           | http://www.4clojure.com/problem/113 | x |
