@@ -12,7 +12,7 @@
 ;; | Crossword puzzle            | http://www.4clojure.com/problem/111 |   |
 ;; | Analyze Reversi             | http://www.4clojure.com/problem/124 |   |
 ;; | Triangle Minimal Path       | http://www.4clojure.com/problem/79  | x |
-;; | Graph Connectivity          | http://www.4clojure.com/problem/91  |   |
+;; | Graph Connectivity          | http://www.4clojure.com/problem/91  | x |
 ;; | Graph Tour                  | http://www.4clojure.com/problem/89  |   |
 ;; | Gus' Quinundrum             | http://www.4clojure.com/problem/125 | x |
 ;; | Veitch, Please!             | http://www.4clojure.com/problem/140 |   |
