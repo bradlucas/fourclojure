@@ -7,7 +7,7 @@
 ;; | Squares Squared             | http://www.4clojure.com/problem/138 |   |
 ;; | Analyze a Tic-Tac-Toe Board | http://www.4clojure.com/problem/73  | x |
 ;; | Game of Life                | http://www.4clojure.com/problem/94  | x |
-;; | For Science!                | http://www.4clojure.com/problem/117 |   |
+;; | For Science!                | http://www.4clojure.com/problem/117 | x |
 ;; | Win at Tic-Tac-Toe          | http://www.4clojure.com/problem/119 | x |
 ;; | Crossword puzzle            | http://www.4clojure.com/problem/111 |   |
 ;; | Analyze Reversi             | http://www.4clojure.com/problem/124 |   |
