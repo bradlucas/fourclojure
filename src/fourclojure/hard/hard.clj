@@ -16,7 +16,7 @@
 ;; | Graph Tour                  | http://www.4clojure.com/problem/89  | x |
 ;; | Gus' Quinundrum             | http://www.4clojure.com/problem/125 | x |
 ;; | Veitch, Please!             | http://www.4clojure.com/problem/140 |   |
-;; | Number Maze                 | http://www.4clojure.com/problem/106 |   |
+;; | Number Maze                 | http://www.4clojure.com/problem/106 | x |
 ;; | Love Triangle               | http://www.4clojure.com/problem/127 |   |
 ;; | Longest Increasing Sub-Seq  | http://www.4clojure.com/problem/53  | x |
 ;; | Word Chains                 | http://www.4clojure.com/problem/82  | x |
