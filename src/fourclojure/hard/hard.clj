@@ -4,7 +4,7 @@
 ;; |-----------------------------+-------------------------------------+---|
 ;; | Language of a DFA           | http://www.4clojure.com/problem/164 |   |
 ;; | Latin Square Slicing        | http://www.4clojure.com/problem/152 |   |
-;; | Squares Squared             | http://www.4clojure.com/problem/138 |   |
+;; | Squares Squared             | http://www.4clojure.com/problem/138 | x |
 ;; | Analyze a Tic-Tac-Toe Board | http://www.4clojure.com/problem/73  | x |
 ;; | Game of Life                | http://www.4clojure.com/problem/94  | x |
 ;; | For Science!                | http://www.4clojure.com/problem/117 | x |
