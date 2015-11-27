@@ -24,7 +24,7 @@
 ;; | Transitive Closure          | http://www.4clojure.com/problem/84  | x |
 ;; | Best Hand                   | http://www.4clojure.com/problem/178 | x |
 ;; | Read Roman numerals         | http://www.4clojure.com/problem/92  | x |
-;; | Tree reparenting            | http://www.4clojure.com/problem/130 |   |
+;; | Tree reparenting            | http://www.4clojure.com/problem/130 | x |
 ;; | Making Data Dance           | http://www.4clojure.com/problem/113 | x |
 ;; |-----------------------------+-------------------------------------+---|
 
