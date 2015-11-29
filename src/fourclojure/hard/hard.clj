@@ -9,7 +9,7 @@
 ;; | Game of Life                | http://www.4clojure.com/problem/94  | x |
 ;; | For Science!                | http://www.4clojure.com/problem/117 | x |
 ;; | Win at Tic-Tac-Toe          | http://www.4clojure.com/problem/119 | x |
-;; | Crossword puzzle            | http://www.4clojure.com/problem/111 |   |
+;; | Crossword puzzle            | http://www.4clojure.com/problem/111 | x |
 ;; | Analyze Reversi             | http://www.4clojure.com/problem/124 |   |
 ;; | Triangle Minimal Path       | http://www.4clojure.com/problem/79  | x |
 ;; | Graph Connectivity          | http://www.4clojure.com/problem/91  | x |
