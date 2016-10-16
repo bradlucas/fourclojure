@@ -1,9 +1,14 @@
 # fourclojure
 
-Working through 4clojure.
+My 4clojure problem solutions. Four more to go.
 
 
-## Usage
+## Sections
+
+* https://github.com/bradlucas/fourclojure/blob/master/src/fourclojure/elementary.clj
+* https://github.com/bradlucas/fourclojure/blob/master/src/fourclojure/easy.clj
+* https://github.com/bradlucas/fourclojure/tree/master/src/fourclojure/medium
+* https://github.com/bradlucas/fourclojure/tree/master/src/fourclojure/hard
 
 
 ## License
