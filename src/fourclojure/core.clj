@@ -1,9 +1,9 @@
-(ns fourclojure.core)
+(ns fourclojure.core
+  (:gen-class))
 
-(defn main
-  "I don't do a whole lot."
+(defn -main
   [& args]
-  (println "4clojure"))
+  (println "4clojure solutions. Visit the files in src/fourclojure"))
 
 
 
